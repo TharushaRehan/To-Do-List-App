@@ -7,6 +7,7 @@ import AboutPage from "./pages/AboutPage";
 import NotFoundPage from "./pages/NotFoundPage";
 import SignUp from "./pages/SignUp";
 import LogIn from "./pages/LogIn";
+import ToDoList from "./pages/To-Do-List";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path="/about" element={<AboutPage />}></Route>
           <Route path="/login" element={<LogIn />}></Route>
           <Route path="/signup" element={<SignUp />}></Route>
+          <Route path="/todolist" element={<ToDoList />}></Route>
           <Route path="" element={<NotFoundPage />}></Route>
         </Routes>
       </BrowserRouter>
