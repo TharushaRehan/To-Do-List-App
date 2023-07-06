@@ -1,5 +1,4 @@
 import HomeImg from "../images/homeimg.jpg";
-import HomeImg1 from "../images/homeimg1.jpg";
 import { StyledButton } from "../MUIComp";
 import { useNavigate } from "react-router-dom";
 import LogInIcon from "@mui/icons-material/Login";

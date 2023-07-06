@@ -51,7 +51,7 @@ const LogIn = () => {
   };
   return (
     <div className="signup-page">
-      <div className="create-acc-form">
+      <div className="login-form">
         <img
           src={Img}
           style={{ height: "200px", borderRadius: "25px", marginTop: "20px" }}

@@ -13,7 +13,7 @@ const SignUp = () => {
   const [error, setError] = useState("");
   //const [isValid, setIsValid] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
-
+  const navigate = useNavigate();
   // const validateEmail = () => {
   //   // Regex pattern for email validation
   //   const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -45,6 +45,9 @@ const SignUp = () => {
             });
             const data = response.data;
             console.log(data);
+            if (data === "Registered") {
+              navigate("/todolist");
+            }
           } catch (error) {
             console.log(error);
           }
