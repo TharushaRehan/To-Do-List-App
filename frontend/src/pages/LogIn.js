@@ -38,6 +38,7 @@ const LogIn = () => {
             password,
           });
           const token = response.data.token;
+          localStorage.setItem("token", token);
           console.log(token);
           if (token) {
             handleLogInSuccess();

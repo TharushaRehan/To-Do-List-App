@@ -4,6 +4,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { StyledButton, StyledTextField } from "../MUIComp";
 import { Stack, Alert, IconButton, InputAdornment } from "@mui/material";
 import { Visibility, VisibilityOff } from "@mui/icons-material/";
+import Img from "../images/12085707_20944201.jpg";
+
 const SignUp = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -61,83 +63,91 @@ const SignUp = () => {
   return (
     <div className="signup-page">
       <div className="create-acc-form">
-        {/* <img
+        <img
           src={Img}
-          style={{ height: "500px", borderRadius: "25px", marginTop: "20px" }}
-          alt="HomeImage"
-        /> */}
-        <p style={{ fontSize: "30px", textAlign: "center" }}>Create Account</p>
-        <form onSubmit={HandleCreateAcc}>
-          <Stack sx={{ width: "100%" }} spacing={6}>
-            <StyledTextField
-              required
-              type="email"
-              className="textfield"
-              label="Email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-
-            <StyledTextField
-              type={showPassword ? "text" : "password"}
-              className="textfield"
-              label="Password"
-              variant="outlined"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              InputProps={{
-                endAdornment: (
-                  <InputAdornment position="end">
-                    <IconButton onClick={handleTogglePassword}>
-                      {showPassword ? <Visibility /> : <VisibilityOff />}
-                    </IconButton>
-                  </InputAdornment>
-                ),
-              }}
-            />
-
-            <StyledTextField
-              type={showPassword ? "text" : "password"}
-              className="textfield"
-              label="Confirm Password"
-              variant="outlined"
-              value={confirmPassword}
-              onChange={(e) => setConfirmPassword(e.target.value)}
-              InputProps={{
-                endAdornment: (
-                  <InputAdornment position="end">
-                    <IconButton onClick={handleTogglePassword}>
-                      {showPassword ? <Visibility /> : <VisibilityOff />}
-                    </IconButton>
-                  </InputAdornment>
-                ),
-              }}
-            />
-
-            {error && (
-              <Alert variant="standard" severity="error">
-                {error}
-              </Alert>
-            )}
-          </Stack>
-
-          <br />
-          <br />
-          <br />
-          <br />
-          <StyledButton type="submit" variant="contained">
+          style={{ height: "400px", borderRadius: "25px", marginTop: "20px" }}
+          alt="SignUpImage"
+        />
+        <div>
+          <p style={{ fontSize: "30px", textAlign: "center" }}>
             Create Account
-          </StyledButton>
-        </form>
-        <br />
-        <br />
-        <Link to="/">
-          <p
-            style={{ textDecoration: "none", color: "black", fontSize: "15px" }}
-          >
-            Already have an account ? Log In here.
           </p>
-        </Link>
+          <form onSubmit={HandleCreateAcc}>
+            <Stack sx={{ width: "100%" }} spacing={6}>
+              <StyledTextField
+                required
+                type="email"
+                className="textfield"
+                label="Email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+
+              <StyledTextField
+                type={showPassword ? "text" : "password"}
+                className="textfield"
+                label="Password"
+                variant="outlined"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                InputProps={{
+                  endAdornment: (
+                    <InputAdornment position="end">
+                      <IconButton onClick={handleTogglePassword}>
+                        {showPassword ? <Visibility /> : <VisibilityOff />}
+                      </IconButton>
+                    </InputAdornment>
+                  ),
+                }}
+              />
+
+              <StyledTextField
+                type={showPassword ? "text" : "password"}
+                className="textfield"
+                label="Confirm Password"
+                variant="outlined"
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
+                InputProps={{
+                  endAdornment: (
+                    <InputAdornment position="end">
+                      <IconButton onClick={handleTogglePassword}>
+                        {showPassword ? <Visibility /> : <VisibilityOff />}
+                      </IconButton>
+                    </InputAdornment>
+                  ),
+                }}
+              />
+
+              {error && (
+                <Alert variant="standard" severity="error">
+                  {error}
+                </Alert>
+              )}
+            </Stack>
+
+            <br />
+            <br />
+            <br />
+            <br />
+            <StyledButton type="submit" variant="contained">
+              Create Account
+            </StyledButton>
+          </form>
+          <br />
+          <br />
+          <Link to="/">
+            <p
+              style={{
+                textDecoration: "none",
+                color: "black",
+                fontSize: "15px",
+              }}
+            >
+              Already have an account ? Log In here.
+            </p>
+          </Link>
+        </div>
       </div>
     </div>
   );

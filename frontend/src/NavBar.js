@@ -5,6 +5,7 @@ import { Button } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import LogInIcon from "@mui/icons-material/Login";
 import LogOutIcon from "@mui/icons-material/Logout";
+import { useEffect, useState } from "react";
 
 export const StyledButton = styled(Button)({
   background: "#03C988",
@@ -23,6 +24,8 @@ const NavBar = () => {
   //const { user } = useUser();
   const navigate = useNavigate();
 
+  useEffect(() => {}, []);
+
   return (
     <nav>
       <ul>
@@ -36,39 +39,29 @@ const NavBar = () => {
           <Link to="/about">About</Link>
         </li>
         <li>
-          <StyledButton
-            variant="outlined"
-            onClick={() => {
-              navigate("/login");
-            }}
-            endIcon={<LogInIcon />}
-          >
-            Log In
-          </StyledButton>
+          {localStorage.getItem("token") ? (
+            <StyledButton
+              variant="outlined"
+              onClick={() => {
+                localStorage.removeItem("token");
+              }}
+              endIcon={<LogOutIcon />}
+            >
+              Log Out
+            </StyledButton>
+          ) : (
+            <StyledButton
+              variant="outlined"
+              onClick={() => {
+                navigate("/login");
+              }}
+              endIcon={<LogInIcon />}
+            >
+              Log In
+            </StyledButton>
+          )}
         </li>
       </ul>
-
-      {/* {user ? (
-        <StyledButton
-          variant="outlined"
-          onClick={() => {
-            signOut(getAuth());
-          }}
-          endIcon={<LogOutIcon />}
-        >
-          Log Out
-        </StyledButton>
-      ) : (
-        <StyledButton
-          variant="outlined"
-          onClick={() => {
-            navigate("/");
-          }}
-          endIcon={<LogInIcon />}
-        >
-          Log In
-        </StyledButton>
-      )} */}
     </nav>
   );
 };

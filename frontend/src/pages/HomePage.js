@@ -3,16 +3,27 @@ import HomeImg1 from "../images/homeimg1.jpg";
 import { StyledButton } from "../MUIComp";
 import { useNavigate } from "react-router-dom";
 import LogInIcon from "@mui/icons-material/Login";
+import { useEffect, useState } from "react";
 
 const HomePage = () => {
   const navigate = useNavigate();
+  const [user, setUser] = useState("");
 
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    setUser(token);
+  }, []);
   const handleSignUp = () => {
     navigate("/signup");
   };
   const handleLogIn = () => {
     navigate("/login");
   };
+
+  const handleContinue = () => {
+    navigate("/todolist");
+  };
+
   return (
     <div className="HomePage">
       <p
@@ -41,13 +52,25 @@ const HomePage = () => {
           <div className="home-btns">
             <StyledButton
               onClick={handleLogIn}
-              variant="contained"
+              variant="outlined"
               endIcon={<LogInIcon />}
+              disabled={user ? true : false}
             >
               Log In
             </StyledButton>
-            <StyledButton onClick={handleSignUp} variant="contained">
+            <StyledButton
+              onClick={handleSignUp}
+              variant="outlined"
+              disabled={user ? true : false}
+            >
               Sign Up
+            </StyledButton>
+            <StyledButton
+              onClick={handleContinue}
+              variant="outlined"
+              disabled={user ? false : true}
+            >
+              Continue
             </StyledButton>
           </div>
         </div>
